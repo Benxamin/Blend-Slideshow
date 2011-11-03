@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+<html>
+  <head>
+    <title>SASSy CSS for CMSes</title>
+    <meta charset='utf-8'>
+    <script src='js/slides.js'></script>
+  </head>
+  
+  <body style='display: none'>
+    <section id="bg" class='slides layout-regular template-default'>
+        
+      
+      <article class='biglogo'></article>
+
+      <article class="title">
+        <h1>
+          SASSy CSS for CMSes
+        </h1>
+        <p class="footer">
+            <strong>Benjamin Bertrand</strong><br>
+            Front-end Developer, Blend Interactive, Inc.<br>
+            South Dakota Code Camp, November 11, 2011
+        </p>
+      </article>
+
+      <article class="segue">
+        <h2>Why are you here?</h2>
+      </article>
+
+      <article class="ex">
+          <h3>CSS is Terrible</h3>
+          <ul class="build">
+              <li>Repetitive</li>
+              <li>Incomplete</li>
+              <li>Limited</li>
+              <li>Browsers are inconsistent</li>
+          </ul>
+          <img src="images/wrench-driver.png" />
+          <div class="src">Source: clker.com</div>
+      </article>
+
+      <article>
+          <h3>SASS Extends CSS</h3>
+          <ul class="build">
+              <li>Variables!</li>
+              <li>Functions!</li>
+              <li>Re-usable code!</li>
+          </ul>
+      </article>
+
+      <article class="segue">
+          <h2>Where did SASS come from?</h2>
+      </article>
+      
+      <article class="ex">
+          <h3>Nathan Weizenbaum</h3>
+          <ul class="build">
+              <li>Seattle, WA</li>
+              <li>BAs in Computer Science &amp; <br>Philosophy</li>
+              <li>HAML contributor</li>
+              <li>Create an aesthetic <br>improvement for CSS</li>
+          </ul>
+          <img src="images/Nathan-Weizenbaum.png" />
+          <div class="src">Source: @nex3</div>
+      </article>
+
+      <article>
+          <h3>Get started with SASS</h3>
+          <ul class="build">
+            <li>SASS is a Ruby Gem</li>
+          </ul>
+          <section>
+            <pre class="prettyprint build">
+<code>$ sudo gem install sass</code>
+<code>$ mv style.css style.scss</code>
+<code>$ sass --watch style.scss:style.css</code>
+            </pre>
+          </section>
+      </article>
+
+      <article>
+        <h3>What SASS looks like</h3>
+          <section class="build">
+            <pre class="prettyprint">
+<span class="com">/* TABLES ============================= */</span>
+<span class="com">//Grid View Tables</span>
+<span class="sel">table.grid</span>
+    <span class="attr">font-size</span>: <span class="val">1.0833em</span>
+    <span class="attr">line-height</span>: <span class="val">1em</span>
+    <span class="kwd">th</span>
+        <span class="attr">background</span>: <span class="val">#d9d9d9</span>
+        <span class="attr">color</span>: <span class="var">$medgray</span>
+        <span class="attr">font</span>: <span class="val">regular 1.333/1</span> <span class="var">$narrowbold</span>
+        <span class="attr">text-transform</span>: uppercase
+        <span class="sel">a</span>
+            <span class="var">$up</span>: <span class="val">right 5px</span>
+            <span class="var">$down</span>: <span class="val">right -86px</span>
+            <span class="attr">color</span>: <span class="var">$medgray</span>
+            <span class="inc-b">@include</span> <span class="inc">round-corners(4px)</span>
+            <span class="sel">&:focus</span>,<span class="sel">&:hover</span>
+                <span class="attr">background</span>: <span class="val">#fff url(<span class="str">../images/grid-arrows.png</span>) no-repeat</span> <span class="var">$down</span>
+
+            </pre>
+          </section>
+
+        <p>
+        </p>
+      </article>
+
+    <article>
+      <h3>CSS Extentions</h3>
+      <ul>
+        <li>Nested Selectors</li>
+        <li>Parent References</li>
+        <li>Nested Properties</li>
+      </ul>      
+    </article>
+
+      <article class="ex">
+        <h3>SASS Syntax</h3>
+        <h4>.sass</h4>
+        <ul>
+          <li>HAML-like:</li>
+          <li>Whitespace aware</li>
+          <li>No extraneous punctuation</li>
+        </ul>
+        <img src="images/syntax-sass.png" />
+        <div class="src">1 of 2</div>
+      </article>
+
+      <article class="ex">
+        <h3>SASS Syntax</h3>
+        <h4>.scss</h4>
+        <ul>
+          <li>CSS-like</li>
+          <li>Nested rules</li>
+        </ul>
+        <img src="images/syntax-scss.png" />
+        <div class="src">2 of 2</div>        
+      </article>
+
+      <article>
+        <h3>Compiling SASS</h3>
+        <section class="prettify build">
+          <h4>From root to specific file paths:</h4>
+          <pre><code>$ sass --watch path/to/sass/styles.sass:path/to/css/styles.css</code></pre>
+          <h4>From assets to css subfolder:</h4>
+          <pre><code>$ sass --watch sass/:css/</code></pre>
+          <h4>In the css folder:</h4>
+          <pre><code class="build">$ sass --watch *</code></pre>
+      </article>
+
+      <article>
+        <h3>SASS Comments</h3>
+        <section class="prettify build">
+          <pre class="build">
+<span class="com">/* This is a permanent comment. */</span>
+<span class="com">/* It can be multiple lines, 
+  but it must be consistently indented! */</span>
+          </pre>
+          <pre class="build">
+<span class="com">//These comment is for SASS authors.</span>
+<span class="com">//They will be skipped.</span>
+          </pre>
+      </article>
+
+      <article>
+        <h3>Variables</h3>
+        <section class="build">
+          <pre class="build"><span class="com">$var: value</span></pre>
+          <pre class="build">
+  <span><code class="com">// Colors</code>
+  $green:     #819c31
+  $navy:      #012a37
+  $orange:    #ed8000</span>
+  <span><code class="com">// Links</code>
+  $link: $green
+  $focus: #77bdd1
+  $hover: #70c1da 
+  $visited: #408295</span>
+  <span><code class="com">// Fonts</code>
+  $heading: 'CopseRegular',Archer,'Gill Sans',Georgia,sans-serif
+  $copy: 'PTSansRegular','Trebuchet MS',Calibri,'Gill Sans',sans-serif
+  $bold: 'PTSansBold','Trebuchet MS',Calibri,'Gill Sans',sans-serif
+  $italic: 'PTSansItalic','Trebuchet MS',Calibri,'Gill Sans',sans-serif</span>
+          </pre>
+        </section>
+      </article>
+
+      <article>
+        <h3>Datatypes</h3>
+        <ul>
+          <li>Numbers</li>
+          <li>Strings</li>
+          <li>Colors</li>
+          <li>Booleans</li>
+          <li>Lists of values</li>
+        </ul>        
+      </article>
+      
+      <article>
+        <h3>String Interpolation</h3>
+        <pre class="build">
+<code>#{$var}</code>
+        </pre>
+      </article>
+      
+    <article>
+      <h3>CSS Extentions</h3>
+      <ul>
+        <li>Nested Selectors</li>
+        <li>Parent References</li>
+        <li>Nested Properties</li>
+      </ul>      
+    </article>
+
+    <article>
+        <h3>This is the SASS version of repeating classes.</h3>
+        <section>
+<code>
+.alert {
+    background: #ccc
+    border: 3px solid #333;
+    color: #333;
+    font-weight: bold;
+    margin: 1em 0;
+    padding: 10px; }
+.warning {
+    
+@extend .alert
+    
+border-color: $dkyellow;
+
+    background-color: $lt_yellow;
+    color: $dkyellow; }
+.error {
+    background: $ltred;
+    border-color: $dkred;
+    color: $dkred;
+}
+</code>
+</p>
+    </article>
+      
+
+      
+      <article class="ex">
+        <h3>SASS Output</h3>
+        <h4>Four styles:</h4>
+        <ul class="build">
+          <li><strong>:expanded</strong>
+            <img src="images/output-expanded.png" />
+          </li>
+          <li><strong>:nested</strong>
+            <img src="images/output-nested.png" />
+          </li>
+          <li><strong>:compact</strong>
+            <img src="images/output-compact.png" />
+          </li>
+          <li><strong>:compressed</strong>
+            <img src="images/output-compressed.png" />
+          </li>
+        </ul>
+      </article>
+        
+      <article class="segue">
+        <h2>Questions?</h2>
+      </article>
+            
+      <article class="segue">
+        <h2>Thank you!</h2>
+        <ul>
+          <li><a href='http://www.nowdirection.com'>nowdirection.com</a></li>
+          <li><a href='http://twitter.com/#!/benxamin'>@benxamin</a></li>
+          <li><a href='http://'>SASSy CSS for CMSes on github</a></li>
+        </ul>
+      </article>
+
+    </section>
+
+  </body>
+</html>
